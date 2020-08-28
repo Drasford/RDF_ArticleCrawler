@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeMKCrawler", "TimeMKCrawler\TimeMKCrawler.csproj", "{9D35BC09-C1BC-43B8-9F71-B3F0C346F2CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeMKVisualizer", "TimeMKVisualizer\TimeMKVisualizer.csproj", "{3B1DD0DB-9D74-48F6-BDEA-1CAD2BE7753C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D35BC09-C1BC-43B8-9F71-B3F0C346F2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D35BC09-C1BC-43B8-9F71-B3F0C346F2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D35BC09-C1BC-43B8-9F71-B3F0C346F2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D35BC09-C1BC-43B8-9F71-B3F0C346F2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1DD0DB-9D74-48F6-BDEA-1CAD2BE7753C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1DD0DB-9D74-48F6-BDEA-1CAD2BE7753C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1DD0DB-9D74-48F6-BDEA-1CAD2BE7753C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1DD0DB-9D74-48F6-BDEA-1CAD2BE7753C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDC7168C-2D29-4388-B03E-31CC57C3B7B8}
+	EndGlobalSection
+EndGlobal

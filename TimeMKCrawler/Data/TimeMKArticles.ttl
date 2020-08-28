@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://www.time.mk/r/0b4161008f/c090c8dd8e/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Вториот бран на коронависурот зема се посилен замав во регионот а државите од ден во ден бележат се повисоки бројки на новозаболени и на починати. Болниците се полнат а вирусот забрзано се шири меѓу населението.";
+                                               <https://schema.org/creator> <https://www.time.mk/s/telma>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "Пандемијата на Ковид-19 на Балканот – Македонија во врвот на црните статиските во регионот".
+<https://www.time.mk/r/44b8317af5/f59ef9c5c1/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Што имаат заедничко нападите врз Тајм и ДИК на изборниот ден и нападот врз веб-страницата на Фондот за иновации две недели пред изборите? Како потфрлила заштитата на ДИК? Што правеле институциите за безбедност за време на нападот? Дали целта била ...";
+                                               <https://schema.org/creator> <https://www.time.mk/s/irl>;
+                                               <https://schema.org/dateCreated> " 18.07.2020";
+                                               <https://schema.org/headline> "Хибридни војни: Кој дозволи да се ’хакне‘ изборниот ден".
+<https://www.time.mk/r/4678cdf314/974e140d9b/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Министерството за здравство информира дека во последните 24 часа се направени 904 тестирања. Регистрирани се 127 нови случаи на ковид-19 во: Скопје-57, Куманово-4, Штип-13, Тетово-6, Струга-10, Охрид-7, Кавадарци-1, Гостивар-8, Пробиштип-2, Демир ...";
+                                               <https://schema.org/creator> <https://www.time.mk/s/kanal5>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "МЗ: 127 нови случаи на Ковид 19, починати се осум лица".
+<https://www.time.mk/r/86b59e621b/fa3f9f03fd/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Доколку мандатите се поделат според родот, во сите изборни единици постојат значителни разлики особено во ИЕ 6 каде од 14 пратенички мандати, само 6 им припаднале на жени. Во новиот парламентарен состав СДСМ ќе биде застапен со најмногу жени, вкупно ...";
+                                               <https://schema.org/creator> <https://www.time.mk/s/tv21>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "„Жените можат повеќе“ – од 120 пратеници, 43 се жени кои ќе седнат во Собранието".
+<https://www.time.mk/r/9a26a51cf2/de5d8c92bc/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Државната изборна комисија (ДИК) на јавна седница ги разгледуваше и одлучуваше по 2.142 приговори поднесени за постапката за гласање и за сумирање и утврдување на резултатите од гласањето на предвремените парламентарни избори.";
+                                               <https://schema.org/creator> <https://www.time.mk/s/kanal5>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "Бачев влезе во кавга со дел од членовите на ДИК".
+<https://www.time.mk/r/9a2f48b861/82258812d0/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> """Причините за поразот ВМРО-ДПМНЕ и Мицкоски да ги бараат кај нив, на слободни, фер и демократски избори победи концептот на СДСМ и Коалицијата „Можеме\". По третиот последователен пораз на избори, ВМРО-ДПМНЕ и Христијан Мицкоски да си ги бараат ...""";
+                                               <https://schema.org/creator> <https://www.time.mk/s/kanal5>;
+                                               <https://schema.org/dateCreated> " 18.07.2020";
+                                               <https://schema.org/headline> "СДСМ: Причините за поразот ВМРО-ДПМНЕ и Мицкоски да ги бараат кај нив".
+<https://www.time.mk/r/af84c08434/1c7f212a3f/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Вака зборуваше лидерот на СДСМ, Зоран Заев пред зиборите, за да не биде условуван од ДУИ за премиер Албанец. А сега кога завршија изборите, токму бројката на пратеници на ДУИ е одлучувачка за формирање Влада.";
+                                               <https://schema.org/creator> <https://www.time.mk/s/tv21>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "Проблемот на Заев за премиер Албанец – дали можат да си разменат пратеници СДСМ И ВМРО-ДПМНЕ?".
+<https://www.time.mk/r/b51c27b49e/1c209247c2/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "По час и половина расправа, експресно беа одбиени сите 2142 приговори поднесени од партиите до ДИК. Како неосновани, без печат и потпис од подносителот на листата, веднаш беа отфрлени 1478 приговори поднесени од „Левица“, додека за останаите 504 ...";
+                                               <https://schema.org/creator> <https://www.time.mk/s/24vesti>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "ДИК ги отфрли сите поднесени приговори за изборите".
+<https://www.time.mk/r/c9978d19d9/8df78dcdda/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Оздраве единствениот позитивен пациент на Ковид-19 во Пехчево. Како што соопштија од Здравствен дом Пехчево, станува збор за вториот од двајцата брачни партнери, кои пред повеќе од еден месец беа позитивни на коронавирус.";
+                                               <https://schema.org/creator> <https://www.time.mk/s/kanal5>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "Оздраве единствениот позитивен пациент на Ковид-19 во Пехчево".
+<https://www.time.mk/r/f6779c81c5/f2ee579fa4/> a <https://schema.org/Article>;
+                                               <https://schema.org/articleBody> "Во моментот Државната изборна комисија во живо одржува јавна седница во која ќе се одлучува по поднесените приговори од страна на политичките ...";
+                                               <https://schema.org/creator> <https://www.time.mk/s/alfa>;
+                                               <https://schema.org/dateCreated> " 19.07.2020";
+                                               <https://schema.org/headline> "ДИК во живо: Јавна седница на која се одлучува за приговорите".
