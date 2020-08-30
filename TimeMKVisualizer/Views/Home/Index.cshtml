@@ -3,17 +3,24 @@
 
 
 <div class="row">
-    @foreach (var item in Model.creators)
-    {
-        <p>@item.ArticleLink   -   @item.CreatorName</p>
-    }
-    @foreach (var item in Model.creators.Select(x => x.CreatorName).Distinct())
-    {
-        <p>@item</p>
-    }
+    <h1>Site vesti za korona za juli se:</h1>
+         @foreach(var item in Model.coronaArticles)
+         {
+             <article>
+                 <h2>
+                     Naslov na vest: @item.CoronaArticleText
+                 </h2>
+                 <h3>Kreator : @item.CoronaCreator.CreatorName</h3>
+             </article>
+         }
+             <h1>Creator chart</h1>
         <div>
             <img src="@Url.Action("ShowChart","Home")" />
         </div>
 
+        <h1>Corona chart</h1>
+        <div>
+            <img src="@Url.Action("ShowCoronaChart","Home")" alt="Alternate Text" />
+        </div>
 
 </div>

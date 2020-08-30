@@ -24,14 +24,31 @@ namespace TimeMKVisualizer.Helpers
 
         }
 
+  
+
         public static string LinkCutter(string link)
         {
            var cut =  link.Replace("https://www.time.mk/s/", "");
             return cut;
         }
 
+
+        public static List<string> GetNumberOfCoronaArticlesPerCreator(List<CoronaModel> coronaArticles)
+        {
+            List<string> listOfCoronaArticleOccuranecsPerCreator = new List<string>();
+            var grouping = coronaArticles.GroupBy(i => i.CoronaCreator.CreatorName);
+            foreach (var item in grouping)
+            {
+                listOfCoronaArticleOccuranecsPerCreator.Add(item.Count().ToString());
+            }
+
+            return listOfCoronaArticleOccuranecsPerCreator;
+        }
+       
+
         public static List<string> GetNumberOfArticlesPerCreator(List<RDFViewModel> creatorTriples)
         {
+
             List<string> listOfArticleOccuranecsPerCreator = new List<string>();
             var grouping = creatorTriples.GroupBy(i => i.Object);
 
@@ -56,6 +73,55 @@ namespace TimeMKVisualizer.Helpers
                 creators.Add(temp);
             }
             return creators;
+        }
+
+        public static Boolean ArticleContainsCorona(string articleHeadline)
+        {
+            bool containsKovid = articleHeadline.IndexOf("Ковид", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool containsKorona = articleHeadline.IndexOf("корона", StringComparison.OrdinalIgnoreCase) >= 0;
+            return containsKovid|| containsKorona;
+        }
+
+        public static List<CoronaModel> GetAllCoronaArticles()
+        {
+            IGraph g = LoadTTL();
+            
+            IUriNode articleHeadlineProperty = g.CreateUriNode(UriFactory.Create("https://schema.org/headline"));
+            
+            IEnumerable<Triple> triplesByHeadline = g.GetTriplesWithPredicate(articleHeadlineProperty);
+
+            List<CoronaModel> coronaModelList = new List<CoronaModel>();
+
+            List<RDFViewModel> triplesWithCreatorPredicate = GetAllObjectsOfSpecificCreator();
+            List<CreatorModel> creators = GetAllCreators(triplesWithCreatorPredicate);
+
+            foreach (var item in triplesByHeadline)
+            {
+                if (ArticleContainsCorona(item.Object.ToString()))
+                {
+                    var tmp = new CoronaModel
+                    {
+                        CoronaArticleLink = item.Subject.ToString(),
+                        CoronaArticleText = item.Object.ToString()
+                    };
+                    coronaModelList.Add(tmp);
+                }
+               
+            }
+
+           // var matchList = creators.Select(x => x.ArticleLink).Intersect(coronaModelList.Select(y => y.CoronaArticleLink)).ToList();
+
+            var FINAL =
+                from c in creators
+                from aranga in coronaModelList
+                where c.ArticleLink == aranga.CoronaArticleLink
+                select new CoronaModel{ CoronaArticleText = aranga.CoronaArticleText, CoronaArticleLink=aranga.CoronaArticleLink, CoronaCreator=c};
+
+            var FINALFINAL = FINAL.ToList();
+             
+
+            return FINALFINAL;
+           
         }
 
         public static List<RDFViewModel> GetAllObjectsOfSpecificCreator()

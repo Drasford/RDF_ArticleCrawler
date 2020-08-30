@@ -9,6 +9,7 @@ namespace TimeMKVisualizer.Models.ViewModels
     {
         public List<RDFViewModel> lista = new List<RDFViewModel>();
         public List<CreatorModel> creators = new List<CreatorModel>();
+        public List<CoronaModel> coronaArticles = new List<CoronaModel>(); 
         public List<string> occurences = new List<string>();
     }
 }

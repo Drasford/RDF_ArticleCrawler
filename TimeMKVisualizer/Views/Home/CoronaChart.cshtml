@@ -1,0 +1,17 @@
+﻿@model TimeMKVisualizer.Models.ViewModels.ListRDFViewModel
+
+
+@{
+    var array = Model.coronaArticles.Select(x => x.CoronaCreator.CreatorName).Distinct().ToArray();
+    var occurences = Model.occurences.ToArray();
+    var myChart = new Chart(width: 600, height: 400)
+    .AddTitle("Corona Chart")
+    .AddSeries(
+    name: "Creator",
+    xValue: array,
+    xField: "Creator Name",
+    yFields: "Number of Articles in Graph",
+    yValues: occurences)
+    .Write();
+}
+

@@ -5,9 +5,8 @@
         var array = Model.creators.Select(x => x.CreatorName).Distinct().ToArray();
         var occurences = Model.occurences.ToArray();
         var myChart = new Chart(width: 600, height: 400)
-        .AddTitle("Chart Title")
+        .AddTitle("Creator Chart")
         .AddSeries(
-        chartType: "Pie",
         name: "Creator",
         xValue: array,
         xField: "Creator Name",

@@ -14,8 +14,11 @@ namespace TimeMKVisualizer.Controllers
 
         public ActionResult Index()
         {
+
+
             viewModel.lista = RDFHelper.GetAllObjectsOfSpecificCreator();
             viewModel.creators = RDFHelper.GetAllCreators(viewModel.lista);
+            viewModel.coronaArticles = RDFHelper.GetAllCoronaArticles();
             return View(viewModel);
         }
 
@@ -26,11 +29,11 @@ namespace TimeMKVisualizer.Controllers
             viewModel.occurences = RDFHelper.GetNumberOfArticlesPerCreator(viewModel.lista);
             return PartialView("CreatorChart",viewModel);
         }
-        public ActionResult CreatorChart()
+        public ActionResult ShowCoronaChart()
         {
-            viewModel.lista = RDFHelper.GetAllObjectsOfSpecificCreator();
-            viewModel.creators = RDFHelper.GetAllCreators(viewModel.lista);
-            return View(viewModel);
+            viewModel.coronaArticles = RDFHelper.GetAllCoronaArticles();
+            viewModel.occurences = RDFHelper.GetNumberOfCoronaArticlesPerCreator(viewModel.coronaArticles);
+            return PartialView("CoronaChart", viewModel);
         }
 
         public ActionResult About()
