@@ -1,0 +1,18 @@
+﻿@model TimeMKVisualizer.Models.ViewModels.ListRDFViewModel
+
+
+    @{
+        var array = Model.creators.Select(x => x.CreatorName).Distinct().ToArray();
+        var occurences = Model.occurences.ToArray();
+        var myChart = new Chart(width: 600, height: 400)
+        .AddTitle("Chart Title")
+        .AddSeries(
+        chartType: "Pie",
+        name: "Creator",
+        xValue: array,
+        xField: "Creator Name",
+        yFields: "Number of Articles in Graph",
+        yValues: occurences)
+        .Write();
+    }
+

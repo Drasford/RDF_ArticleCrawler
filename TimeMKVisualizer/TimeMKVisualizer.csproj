@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\RDFHelper.cs" />
+    <Compile Include="Models\CreatorModel.cs" />
     <Compile Include="Models\ViewModels\ListRDFViewModel.cs" />
     <Compile Include="Models\ViewModels\RDFViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,9 +176,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\CreatorChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Charts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

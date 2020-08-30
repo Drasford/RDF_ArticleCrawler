@@ -18,7 +18,7 @@ namespace TimeMKCrawler.Core
         {
             List<Article> articles = new List<Article>();
 
-            using(StreamReader sr = new StreamReader("C:\\Users\\Dame\\source\\repos\\TimeMKCrawler\\TimeMKCrawler\\Data\\Articles.json"))
+            using(StreamReader sr = new StreamReader("C:\\Users\\Dame\\Desktop\\RDF\\RDF_ArticleCrawler-master\\TimeMKCrawler\\Data\\Articles.json"))
             {
                 string json = sr.ReadToEnd();
                 articles = JsonConvert.DeserializeObject<List<Article>>(json);
@@ -30,10 +30,10 @@ namespace TimeMKCrawler.Core
 
         
 
-        public static async Task StartCrawlerAsync(int pageNumber)
+        public static async Task StartCrawlerAsync()
         {
             
-            var url = "https://time.mk/week/2020/"+pageNumber;
+            var url = "https://time.mk/week/2020/33";
 
 
             var httpClient = new HttpClient();
@@ -46,8 +46,12 @@ namespace TimeMKCrawler.Core
                          .Where(node => node.GetAttributeValue("class", "")
                          .Equals("cluster")).ToList();
 
+            List<Article> articles = new List<Article>();
 
-            var articles = new List<Article>();
+            await Task.Run( () => articles = GetAllArticles());
+
+
+            
 
 
             foreach (var div_article in div_articles)
@@ -61,16 +65,19 @@ namespace TimeMKCrawler.Core
                 {
                     title = div_article?.Descendants("h1")?.FirstOrDefault()?.InnerText,
                     text = div_article?.Descendants("p")?.FirstOrDefault()?.InnerText,
-                    link = "https://www.time.mk/"+ div_article?.Descendants("a")?.FirstOrDefault()?.ChildAttributes("href").FirstOrDefault()?.Value,
+                    link = "https://www.time.mk/" + div_article?.Descendants("a")?.FirstOrDefault()?.ChildAttributes("href").FirstOrDefault()?.Value,
                     dateCreated = div_article?.Descendants("span")?.FirstOrDefault()?.InnerText,
-                    creator = "https://www.time.mk/"+ div_article?.Descendants("h2")?.FirstOrDefault()?.Descendants("a")?.FirstOrDefault()?.ChildAttributes("href").FirstOrDefault()?.Value,
+                    creator = "https://www.time.mk/" + div_article?.Descendants("h2")?.FirstOrDefault()?.Descendants("a")?.FirstOrDefault()?.ChildAttributes("href").FirstOrDefault()?.Value,
                 };
                 articles.Add(article);
             }
 
+
+
+
             JsonSerializer serializer = new JsonSerializer();
 
-            using (StreamWriter sw = new StreamWriter("C:\\Users\\Dame\\source\\repos\\TimeMKCrawler\\TimeMKCrawler\\Data\\Articles.json"))
+            using (StreamWriter sw = new StreamWriter("C:\\Users\\Dame\\Desktop\\RDF\\RDF_ArticleCrawler-master\\TimeMKCrawler\\Data\\Articles.json"))
             {
                 using (JsonWriter jw = new JsonTextWriter(sw))
                 {

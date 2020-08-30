@@ -16,9 +16,9 @@ namespace TimeMKCrawler
         static void Main(string[] args)
         {
            
-            int pageNumber = 31;
+            int pageNumber = 32;
             
-            CrawlerController.StartCrawlerAsync(pageNumber);
+            CrawlerController.StartCrawlerAsync();
             //RdfMapper.InitMapper();
           
             Console.ReadLine();

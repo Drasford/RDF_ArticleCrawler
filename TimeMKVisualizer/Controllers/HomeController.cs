@@ -14,7 +14,22 @@ namespace TimeMKVisualizer.Controllers
 
         public ActionResult Index()
         {
-            viewModel.lista = RDFHelper.GetSpecificCreator();
+            viewModel.lista = RDFHelper.GetAllObjectsOfSpecificCreator();
+            viewModel.creators = RDFHelper.GetAllCreators(viewModel.lista);
+            return View(viewModel);
+        }
+
+        public ActionResult ShowChart()
+        {
+            viewModel.lista = RDFHelper.GetAllObjectsOfSpecificCreator();
+            viewModel.creators = RDFHelper.GetAllCreators(viewModel.lista);
+            viewModel.occurences = RDFHelper.GetNumberOfArticlesPerCreator(viewModel.lista);
+            return PartialView("CreatorChart",viewModel);
+        }
+        public ActionResult CreatorChart()
+        {
+            viewModel.lista = RDFHelper.GetAllObjectsOfSpecificCreator();
+            viewModel.creators = RDFHelper.GetAllCreators(viewModel.lista);
             return View(viewModel);
         }
 

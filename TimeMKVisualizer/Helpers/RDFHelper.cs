@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TimeMKVisualizer.Models;
 using TimeMKVisualizer.Models.ViewModels;
 using VDS.RDF;
 using VDS.RDF.Parsing;
@@ -15,25 +16,58 @@ namespace TimeMKVisualizer.Helpers
         {
             IGraph g = new Graph();
 
-            UriLoader.Load(g, new Uri("https://www.dropbox.com/s/h53ocqp0vj1tm80/TimeMKArticles.ttl?dl=1"));
+            TurtleParser turtleParser = new TurtleParser();
+
+            UriLoader.Load(g, new Uri("https://www.dropbox.com/s/h53ocqp0vj1tm80/TimeMKArticles.ttl?dl=1"),turtleParser);
 
             return g;
 
         }
 
-        public static List<RDFViewModel> GetSpecificCreator()
+        public static string LinkCutter(string link)
+        {
+           var cut =  link.Replace("https://www.time.mk/s/", "");
+            return cut;
+        }
+
+        public static List<string> GetNumberOfArticlesPerCreator(List<RDFViewModel> creatorTriples)
+        {
+            List<string> listOfArticleOccuranecsPerCreator = new List<string>();
+            var grouping = creatorTriples.GroupBy(i => i.Object);
+
+            foreach (var item in grouping)
+            {
+                listOfArticleOccuranecsPerCreator.Add(item.Count().ToString());
+            }
+            return listOfArticleOccuranecsPerCreator;
+        }
+
+        public static List<CreatorModel> GetAllCreators(List<RDFViewModel> creatorTriples)
+        {
+            List<CreatorModel> creators = new List<CreatorModel>();
+            foreach (var item in creatorTriples)
+            {
+                var temp = new CreatorModel
+                {
+                    CreatorName = LinkCutter(item.Object.ToString()),
+                    ArticleLink = item.Subject.ToString()
+
+                };
+                creators.Add(temp);
+            }
+            return creators;
+        }
+
+        public static List<RDFViewModel> GetAllObjectsOfSpecificCreator()
         {
             IGraph g = LoadTTL();
-
-            IUriNode kanal = g.CreateUriNode(UriFactory.Create("https://www.time.mk/s/kanal5"));
             IUriNode articleCreatorProperty = g.CreateUriNode(UriFactory.Create("https://schema.org/creator"));
 
+            IEnumerable<Triple> triplesByCreator = g.GetTriplesWithPredicate(articleCreatorProperty);
+            List<RDFViewModel> triplesWithCreatorPredicate = new List<RDFViewModel>();
 
-            IEnumerable<Triple> list = g.GetTriplesWithPredicateObject(articleCreatorProperty, kanal);
 
-            List<RDFViewModel> creatorsList = new List<RDFViewModel>();
-
-            foreach (var triple in list)
+            foreach (var triple in triplesByCreator)
             {
                 var temp = new RDFViewModel
                 {
@@ -42,11 +76,12 @@ namespace TimeMKVisualizer.Helpers
                     Object = triple.Object.ToString(),
 
                 };
-                creatorsList.Add(temp);
+                triplesWithCreatorPredicate.Add(temp);
             }
+            return triplesWithCreatorPredicate;
 
-            return creatorsList;
-            
         }
+
+      
     }
 }
